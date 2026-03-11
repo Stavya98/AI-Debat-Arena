@@ -29,5 +29,5 @@ if not firebase_admin._apps:
     firebase_admin.initialize_app(cred)
 
 def verify_user(token: str):
-    decoded = auth.verify_id_token(token)
+    decoded = auth.verify_id_token(token, clock_skew_seconds=10)
     return decoded
